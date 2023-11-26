@@ -28,23 +28,38 @@ box_width = width // 8
 box_height = (height - 100) // 5
 
 class Card(pygame.sprite.Sprite):
-    def __init__(self, image_path, pos_x, pos_y, card_width=80, card_height=80):
+    def __init__(self, image_path, back_image_path, pos_x, pos_y, card_width=80, card_height=80):
         super().__init__()
-        self.image = pygame.transform.scale(pygame.image.load(image_path), (card_width, card_height))
+        self.picture_image = pygame.transform.scale(pygame.image.load(image_path), (card_width, card_height))
+        self.back_image = pygame.transform.scale(pygame.image.load(back_image_path), (card_width, card_height))
+        self.image = self.back_image
         self.rect = self.image.get_rect()
         self.rect.x = pos_x
         self.rect.y = pos_y
+        self.is_open = False
+
+    def card_chosen(self, mouse_location):
+        if self.rect.collidepoint(mouse_location):
+            self.flip()
+
+    def flip(self):
+        if self.is_open:
+            self.is_open = False
+            self.image = self.picture_image
+        else:
+            self.is_open = True
+            self.image = self.back_image
 
 all_cards = pygame.sprite.Group()
 
-#Generated code starts
+# Generated code starts
 for row in range(5):
     for col in range(8):
         index = row * 8 + col 
-        #Generated code ends
+        # Generated code ends
         x = 10 + col * box_width
         y = 110 + row * box_height
-        card = Card(card_images[index], x, y)
+        card = Card(card_images[index], os.path.join(current_directory, "assets", "back.png"), x, y)
         all_cards.add(card)
 
 screen = pygame.display.set_mode((width, height))
@@ -61,6 +76,10 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_pos = pygame.mouse.get_pos()
+            for card in all_cards:
+                card.card_chosen(mouse_pos)
 
     draw_backround()
 
