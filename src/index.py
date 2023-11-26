@@ -24,22 +24,31 @@ card_images = image_paths * 2
 
 random.shuffle(card_images)
 
-card_width = width // 8
-card_height = (height - 100) // 5
+box_width = width // 8
+box_height = (height - 100) // 5
 
-# AI generated code starts
-grid = []
+class Card(pygame.sprite.Sprite):
+    def __init__(self, image_path, pos_x, pos_y, card_width=80, card_height=80):
+        super().__init__()
+        self.image = pygame.transform.scale(pygame.image.load(image_path), (card_width, card_height))
+        self.rect = self.image.get_rect()
+        self.rect.x = pos_x
+        self.rect.y = pos_y
+
+all_cards = pygame.sprite.Group()
+
+#Generated code starts
 for row in range(5):
-   for col in range(8):
-       index = row * 8 + col
-       card = {
-           "image": pygame.image.load(card_images[index]),
-           "rect": pygame.Rect(col * card_width, 100 + row * card_height, card_width, card_height),
-       }
-       grid.append(card)
-# AI generated code ends
+    for col in range(8):
+        index = row * 8 + col 
+        #Generated code ends
+        x = 10 + col * box_width
+        y = 110 + row * box_height
+        card = Card(card_images[index], x, y)
+        all_cards.add(card)
 
 screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption("Muistipeli")
 
 def draw_backround():
     text_box = pygame.draw.rect(screen, black, [0, 0, width, 100])
@@ -55,10 +64,7 @@ while True:
 
     draw_backround()
 
-    # AI generated code starts
-    for card in grid:
-       screen.blit(pygame.transform.scale(card["image"], (card_width, card_height)), card["rect"])
-    # AI generated code ends
+    all_cards.draw(screen)
 
     pygame.display.flip()
     pygame.time.Clock().tick(60)
