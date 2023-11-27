@@ -2,6 +2,7 @@ import pygame
 import sys
 import os
 from services.card_service import create_cards
+from ui.game_display import draw_backround
 
 pygame.init()
 
@@ -21,12 +22,6 @@ all_cards = create_cards(current_directory, width, height)
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Muistipeli")
 
-def draw_backround():
-    text_box = pygame.draw.rect(screen, black, [0, 0, width, 100])
-    title = font.render("Muistipeli", True, white)
-    screen.blit(title, (10, 20))
-    game_table = pygame.draw.rect(screen, lavender, [0, 100, width, height-100], 0)
-
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -37,7 +32,7 @@ while True:
             for card in all_cards:
                 card.card_chosen(mouse_pos)
 
-    draw_backround()
+    draw_backround(screen, black, white, lavender, width, height, font)
 
     all_cards.draw(screen)
 
