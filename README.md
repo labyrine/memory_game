@@ -4,6 +4,8 @@ Sovellus on muistipeli, jota voi pelata yksi tai useampi henkilö.
 
 Tällä hetkellä sovelluksessa toimii korttien kääntäminen näkyviin ja pois näkyvistä.
 
+Muistipelin korttien tekemisessä on käytetty Googlen Autodraw-työkalua.
+
 ## Dokumentaatio
 
 [Vaatimusmäärittely](https://github.com/labyrine/memory_game/blob/main/dokumentaatio/vaatimusmaarittely.md)
