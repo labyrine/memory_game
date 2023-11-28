@@ -16,7 +16,8 @@
 |28.11|2|Testaaminen ja varoituksen syyn etsintää|
 ||0.5|Invoke tehtävät|
 ||0.75|Koodin laadun parantamista|
-||0.5|Changelog ja README päivittäminen
-| **Yht.**  | **20.5** |
+||0.5|Changelog ja README päivittäminen|
+||0.5|Ohjelman alustavan rakenteen laatiminen|
+| **Yht.**  | **21** |
 
 
