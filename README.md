@@ -1,11 +1,56 @@
-# Ohjelmistotekniikan kurssin projekti
+# Muistipeli
 
-***Muistipeli***
+Sovellus on muistipeli, jota voi pelata yksi tai useampi henkilö.
 
-Valitsin projektikseni _muistipelin_, jota voi pelata esimerkiksi 2-4 henkilöä.
+Tällä hetkellä sovelluksessa toimii korttien kääntäminen näkyviin ja pois näkyvistä.
 
-Linkki alihakemistoon [**laskarit**](https://github.com/labyrine/memory_game/tree/main/laskarit)
+## Dokumentaatio
 
-Linkki [vaatimusmäärittelyyn](https://github.com/labyrine/memory_game/blob/main/dokumentaatio/vaatimusmaarittely.md)
+[Vaatimusmäärittely](https://github.com/labyrine/memory_game/blob/main/dokumentaatio/vaatimusmaarittely.md)
 
-Linkki [työaikakirjanpitoon](https://github.com/labyrine/memory_game/blob/main/dokumentaatio/tyoaikakirjanpito.md)
+[Työaikakirjanpito](https://github.com/labyrine/memory_game/blob/main/dokumentaatio/tyoaikakirjanpito.md)
+
+[Changelog](https://github.com/labyrine/memory_game/blob/main/dokumentaatio/changelog.md)
+
+## Asentaminen
+
+1. Riippuvuudet asennetaan terminaalissa memory_game kansion sisällä komennolla
+
+```bash
+poetry install
+```
+
+2. Pelin käynnistäminen tapahtuu komennolla
+
+```bash
+poetry run invoke start
+```
+## Komentorivitoiminnot
+
+### Pelin suorittaminen
+
+```bash
+poetry run invoke start
+```
+
+### Testaaminen
+
+```bash
+poetry run invoke test
+```
+
+### Testikattavuus
+
+```bash
+poetry run invoke coverage-report
+```
+
+Raportti tulee generoitumaan _htmlcov_-hakemistoon.
+
+### Pylint
+
+Tiedoston [.pylintrc](./.pylintrc) määrittelemien tarkistusten suorittaminen
+
+```bash
+poetry run invoke lint
+```
