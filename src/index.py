@@ -18,6 +18,8 @@ lavender = (230, 230, 250)
 font = pygame.font.SysFont("verdana", 56)
 
 all_cards = create_cards(current_directory, WIDTH, HEIGHT)
+pairs_count = len(all_cards) // 2
+points = 0
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Muistipeli")
@@ -50,9 +52,20 @@ while True:
         # Generated code starts
         if pygame.time.get_ticks() - flip_timer > 3000:
             # Generated code ends
-            cards_turned[0].flip()
-            cards_turned[1].flip()
-            cards_turned = []
+            if cards_turned[0].is_matching(cards_turned[1]):
+                points += 1
+                cards_turned[0].delete_found()
+                cards_turned[1].delete_found()
+                cards_turned = []
+                if points == pairs_count:
+                    pygame.quit()
+                    sys.exit()
+            elif not cards_turned[0].is_matching(cards_turned[1]):
+                cards_turned[0].flip()
+                cards_turned[1].flip()
+                cards_turned = []
+            else:
+                pass
             # Generated code starts
             processing_cards = False
             flip_timer = pygame.time.get_ticks()
