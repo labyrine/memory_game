@@ -22,15 +22,41 @@ all_cards = create_cards(current_directory, WIDTH, HEIGHT)
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Muistipeli")
 
+cards_turned = []
+# Generated code starts
+processing_cards = False
+flip_timer = pygame.time.get_ticks()
+# Generated code ends
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            mouse_pos = pygame.mouse.get_pos()
+        # Generated code starts
+        if not processing_cards and event.type == pygame.MOUSEBUTTONDOWN:
+            # Generated code ends
+            mouse_x, mouse_y = pygame.mouse.get_pos()
             for card in all_cards:
-                card.card_chosen(mouse_pos)
+                if card.card_chosen(mouse_x, mouse_y) and len(cards_turned) < 2 and card not in cards_turned:
+                    card.flip()
+                    cards_turned.append(card)
+            # Generated code starts
+            if len(cards_turned) == 2:
+                processing_cards = True
+            # Generated code ends
+
+    if len(cards_turned) == 2:
+        # Generated code starts
+        if pygame.time.get_ticks() - flip_timer > 3000:
+            # Generated code ends
+            cards_turned[0].flip()
+            cards_turned[1].flip()
+            cards_turned = []
+            # Generated code starts
+            processing_cards = False
+            flip_timer = pygame.time.get_ticks()
+            # Generated code ends
 
     draw_backround(screen, black, white, lavender, WIDTH, HEIGHT, font)
 
