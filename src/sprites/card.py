@@ -27,12 +27,12 @@ class Card(pygame.sprite.Sprite):
         else:
             self.is_open = True
             self.image = self.picture_image
-    
+
     def is_matching(self, other_card):
         self_str = pygame.image.tostring(self.image, 'RGB')
         other_str = pygame.image.tostring(other_card.image, 'RGB')
 
         return self_str == other_str
-    
+
     def delete_found(self):
         self.kill()
