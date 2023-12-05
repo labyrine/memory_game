@@ -2,7 +2,7 @@
 
 Sovellus on muistipeli, jota voi pelata yksi tai useampi henkilö.
 
-Tällä hetkellä sovelluksessa toimii korttien kääntäminen näkyviin ja pois näkyvistä.
+Tällä hetkellä sovelluksessa toimii yhden henkilön muistipeli. Kun kaikki parit ovat löydetty, peli sulkeutuu.
 
 Muistipelin korttien tekemisessä on käytetty Googlen Autodraw-työkalua.
 
