@@ -18,6 +18,11 @@
 ||0.75|Koodin laadun parantamista|
 ||0.5|Changelog ja README päivittäminen|
 ||0.5|Ohjelman alustavan rakenteen laatiminen|
-| **Yht.**  | **21** |
+|3.12|4.25|Vain kahden kortin kääntymisen tekoa|
+|4.12|4.5|Kahden kortin kääntyminen ja niiden vertailu sekä pelin päättyminen toimivat yhden henkilön pelatessa|
+|5.12|3|Rakenteen pohtimista ja kokeiluja, jotka eivät kelvanneet projektiin|
+||1.25|Testaaminen|
+||0.25|Changelog, README ja määirttelydokumentin päivittäminen|
+| **Yht.**  | **34.25** |
 
 
