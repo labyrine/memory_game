@@ -1,7 +1,7 @@
 import sys
 import os
 import pygame
-from services.card_service import create_cards
+from services.memory_game_setup import MemoryGameSetUp
 from ui.game_display import draw_backround
 
 
@@ -20,13 +20,12 @@ def main():
 
     font = pygame.font.SysFont("verdana", 56)
 
-    all_cards = create_cards(current_directory, WIDTH, HEIGHT)
-    pairs_count = len(all_cards) // 2
+    setup = MemoryGameSetUp(current_directory, WIDTH, HEIGHT)
+    pairs_count = len(setup.all_cards) // 2
     points = 0
 
     cards_turned = []
     # Generated code starts
-    processing_cards = False
     flip_timer = pygame.time.get_ticks()
     # Generated code ends
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -38,18 +37,12 @@ def main():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-            # Generated code starts
-            if not processing_cards and event.type == pygame.MOUSEBUTTONDOWN:
-                # Generated code ends
+            if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_x, mouse_y = pygame.mouse.get_pos()
-                for card in all_cards:
+                for card in setup.all_cards:
                     if card.card_chosen(mouse_x, mouse_y) and len(cards_turned) < 2 and card not in cards_turned:
                         card.flip()
                         cards_turned.append(card)
-                    # Generated code starts
-                    if len(cards_turned) == 2:
-                        processing_cards = True
-                    # Generated code ends
 
         if len(cards_turned) == 2:
             # Generated code starts
@@ -70,13 +63,12 @@ def main():
                 else:
                     pass
                 # Generated code starts
-                processing_cards = False
                 flip_timer = pygame.time.get_ticks()
                 # Generated code ends
 
         draw_backround(screen, black, white, lavender, WIDTH, HEIGHT, font)
 
-        all_cards.draw(screen)
+        setup.all_cards.draw(screen)
 
         pygame.display.flip()
         pygame.time.Clock().tick(60)
