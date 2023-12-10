@@ -47,7 +47,7 @@ class TestCard(unittest.TestCase):
         card2 = self.card
         result = card1.is_matching(card2)
         self.assertTrue(result)
-    
+
     def test_cards_not_matching(self):
         card1 = self.card
         card2 = Card(back_image_path, image_path, 0, 0)
