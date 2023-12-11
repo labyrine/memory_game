@@ -11,3 +11,8 @@
 - Jos kortit ovat samat, ne poistuvat pelistä. Jos ne ovat eri, ne kääntyvät takaisin ympäri
 - Peli päättyy, kun kaikki kortit on löydetty sulkemalla sovelluksen
 - Card-luokan testit korjattu luokkaan tehtyjen muutosten mukaisiksi
+
+# Viikko 6
+- Pelaajat voivat valita yhden, kahden tai kolmen pelaajan pelin
+- Pelaajien vuorot vaihtuvat peliruudulla vaihtamalla väriä
+- Jokaisella pelaajalla on päivittyvät pisteet peliruudulla
