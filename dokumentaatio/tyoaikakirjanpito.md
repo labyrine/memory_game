@@ -23,6 +23,12 @@
 |5.12|3|Rakenteen pohtimista ja kokeiluja, jotka eivät kelvanneet projektiin|
 ||1.25|Testaaminen|
 ||0.25|Changelog, README ja määirttelydokumentin päivittäminen|
-| **Yht.**  | **34.25** |
+|8.12|5|Rakenteen korjaamista|
+|9.12|2|Virheen etsimistä|
+||1|Virheen korjausta|
+|10.12|0.5|Virheen korjausta|
+||2|Aloitussivun, vuoron vaihtumisen, pisteiden laskun ja pelaajamäärän valinnan tekoa|
+|11.12|2|Vuoron vaihtumisen ja pisteiden laskun korjausta|
+| **Yht.**  | **46.75** |
 
 
