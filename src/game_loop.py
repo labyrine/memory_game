@@ -89,4 +89,4 @@ class GameLoop:
 
     def _render(self):
         self._renderer.render(self.current_player,
-                              self.scores, self.num_players)
+            self.scores, self.num_players)
