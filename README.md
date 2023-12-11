@@ -1,8 +1,8 @@
 # Muistipeli
 
-Sovellus on muistipeli, jota voi pelata yksi tai useampi henkilö.
+Sovellus on muistipeli, jota voi pelata yksi, kaksi tai kolme henkilöä.
 
-Tällä hetkellä sovelluksessa toimii yhden henkilön muistipeli. Kun kaikki parit ovat löydetty, peli sulkeutuu.
+Ennen peliä voidaan valita pelaajien määrä. Tämän jälkeen peliruudulla näkyy 1, 2 tai 3 pelaajanimeä, joiden väri vaihtuu riippuen siitä, kenen vuoro on. Lisäksi jokaiselle pelaajalle näkyy henkilökohtaiset pisteet, jotka päivittyvät pelin kuluessa. Kun kaikki parit ovat löydetty, peli sulkeutuu.
 
 Muistipelin korttien tekemisessä on käytetty Googlen Autodraw-työkalua.
 
