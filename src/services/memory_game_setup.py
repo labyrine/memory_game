@@ -5,11 +5,14 @@ from sprites.card import Card
 
 
 class MemoryGameSetUp:
-    def __init__(self, directory_now, width, height):
+    def __init__(self, directory_now, width, height, num_players):
         self.WIDTH = width
         self.HEIGHT = height
         self.current_directory = directory_now
         self.all_cards = pygame.sprite.Group()
+        self.num_players = num_players
+        self.current_player = 1
+        self.scores = [0] * self.num_players
 
         self._initialize_sprites(directory_now, width, height)
 

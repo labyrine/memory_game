@@ -12,8 +12,12 @@ class GameLoop:
         self.pairs_count = len(self.all_cards) // 2
         self.points = 0
         self.cards_turned = []
+        self.num_players = setup.num_players
+        self.current_player = setup.current_player
+        self.scores = setup.scores
         # Generated code starts
         self.flip_timer = self._clock.get_ticks()
+        self.update_current_player_going = False
         # Generated code ends
 
     def start(self):
@@ -45,6 +49,12 @@ class GameLoop:
                 # Generated code ends
                 if self.cards_turned[0].is_matching(self.cards_turned[1]):
                     self.points += 1
+                    if self.current_player == 1:
+                        self.scores[0] += 1
+                    if self.current_player == 2:
+                        self.scores[1] += 1
+                    if self.current_player == 3:
+                        self.scores[2] += 1
                     self.cards_turned[0].delete_found()
                     self.cards_turned[1].delete_found()
                     self.cards_turned = []
@@ -57,7 +67,26 @@ class GameLoop:
                     self.cards_turned = []
                 # Generated code starts
                 self.flip_timer = self._clock.get_ticks()
-                # Generated code ends
+                self.update_current_player_going = True
+        if self.update_current_player_going:
+            self.update_current_player()
+        self.update_current_player_going = False
+        # Generated code ends
+
+    def update_current_player(self):
+        if self.num_players == 2:
+            if self.current_player == 1:
+                self.current_player = 2
+            elif self.current_player == 2:
+                self.current_player = 1
+        elif self.num_players == 3:
+            if self.current_player == 1:
+                self.current_player = 2
+            elif self.current_player == 2:
+                self.current_player = 3
+            elif self.current_player == 3:
+                self.current_player = 1
 
     def _render(self):
-        self._renderer.render()
+        self._renderer.render(self.current_player,
+                              self.scores, self.num_players)

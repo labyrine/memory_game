@@ -1,6 +1,7 @@
 import os
 import pygame
 from services.memory_game_setup import MemoryGameSetUp
+from ui.start_display import StartScreen
 from game_loop import GameLoop
 from event_queue import EventQueue
 from ui.game_display import Renderer
@@ -21,7 +22,10 @@ def main():
 
     pygame.display.set_caption("Muistipeli")
 
-    setup = MemoryGameSetUp(current_directory, WIDTH, HEIGHT)
+    home_screen = StartScreen(screen, WIDTH, HEIGHT)
+    num_players = home_screen.show()
+
+    setup = MemoryGameSetUp(current_directory, WIDTH, HEIGHT, num_players)
     event_queue = EventQueue()
     renderer = Renderer(screen, setup)
     clock = Clock()
