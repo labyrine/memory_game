@@ -13,6 +13,7 @@
 - Card-luokan testit korjattu luokkaan tehtyjen muutosten mukaisiksi
 
 # Viikko 6
-- Pelaajat voivat valita yhden, kahden tai kolmen pelaajan pelin
+- Pelaajat voivat valita yhden, kahden tai kolmen pelaajan pelin (Aloitusruutu)
 - Pelaajien vuorot vaihtuvat peliruudulla vaihtamalla väriä
 - Jokaisella pelaajalla on päivittyvät pisteet peliruudulla
+- Rakenteen korjausta: Luokka MemoryGameSetUp huolehtii mm. Card olioiden luomisesta ja GameLoop taas pelin aikaisesta käyttäjän toiminnasta
