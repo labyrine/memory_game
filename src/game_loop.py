@@ -46,32 +46,33 @@ class GameLoop:
             current_time = self._clock.get_ticks()
             # Generated code starts
             if current_time - self.flip_timer > 3000:
-                # Generated code ends
-                if self.cards_turned[0].is_matching(self.cards_turned[1]):
-                    self.points += 1
-                    if self.current_player == 1:
-                        self.scores[0] += 1
-                    if self.current_player == 2:
-                        self.scores[1] += 1
-                    if self.current_player == 3:
-                        self.scores[2] += 1
-                    self.cards_turned[0].delete_found()
-                    self.cards_turned[1].delete_found()
-                    self.cards_turned = []
-                    if self.points == self.pairs_count:
-                        pygame.quit()
-                        sys.exit()
-                elif not self.cards_turned[0].is_matching(self.cards_turned[1]):
-                    self.cards_turned[0].flip()
-                    self.cards_turned[1].flip()
-                    self.cards_turned = []
-                # Generated code starts
+                self.process_match_outcome()
                 self.flip_timer = self._clock.get_ticks()
                 self.update_current_player_going = True
         if self.update_current_player_going:
             self.update_current_player()
         self.update_current_player_going = False
         # Generated code ends
+
+    def process_match_outcome(self):
+        if self.cards_turned[0].is_matching(self.cards_turned[1]):
+            self.points += 1
+            if self.current_player == 1:
+                self.scores[0] += 1
+            if self.current_player == 2:
+                self.scores[1] += 1
+            if self.current_player == 3:
+                self.scores[2] += 1
+            self.cards_turned[0].delete_found()
+            self.cards_turned[1].delete_found()
+            self.cards_turned = []
+            if self.points == self.pairs_count:
+                pygame.quit()
+                sys.exit()
+        elif not self.cards_turned[0].is_matching(self.cards_turned[1]):
+            self.cards_turned[0].flip()
+            self.cards_turned[1].flip()
+            self.cards_turned = []
 
     def update_current_player(self):
         if self.num_players == 2:
