@@ -14,6 +14,8 @@ Muistipelin korttien tekemisessä on käytetty Googlen Autodraw-työkalua.
 
 [Changelog](https://github.com/labyrine/memory_game/blob/main/dokumentaatio/changelog.md)
 
+[Käyttöohje](https://github.com/labyrine/memory_game/blob/main/dokumentaatio/kayttoohje.md)
+
 ## Asentaminen
 
 1. Riippuvuudet asennetaan terminaalissa memory_game kansion sisällä komennolla
