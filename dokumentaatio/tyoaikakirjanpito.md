@@ -29,6 +29,10 @@
 |10.12|0.5|Virheen korjausta|
 ||2|Aloitussivun, vuoron vaihtumisen, pisteiden laskun ja pelaajamäärän valinnan tekoa|
 |11.12|2|Vuoron vaihtumisen ja pisteiden laskun korjausta|
-| **Yht.**  | **46.75** |
+|12.12|0.5|Game loopin rakenteen päivittämistä sekä mm ui kansion jättäminen pois testauksesta|
+||1|Alustavaa testien tekoa, jotka eivät toimineet|
+||1|Koodin korjailua Pylintin ilmoitusten perusteella|
+||0.25|Käyttöohje|
+| **Yht.**  | **49.5** |
 
 
