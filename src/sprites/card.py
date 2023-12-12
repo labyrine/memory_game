@@ -15,10 +15,7 @@ class Card(pygame.sprite.Sprite):
         self.is_open = False
 
     def card_chosen(self, mouse_location_x, mouse_location_y):
-        if self.rect.collidepoint(mouse_location_x, mouse_location_y):
-            return True
-        else:
-            return False
+        return bool(self.rect.collidepoint(mouse_location_x, mouse_location_y))
 
     def flip(self):
         if self.is_open:

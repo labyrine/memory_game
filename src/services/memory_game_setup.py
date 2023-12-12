@@ -6,8 +6,8 @@ from sprites.card import Card
 
 class MemoryGameSetUp:
     def __init__(self, directory_now, width, height, num_players):
-        self.WIDTH = width
-        self.HEIGHT = height
+        self.width = width
+        self.height = height
         self.current_directory = directory_now
         self.all_cards = pygame.sprite.Group()
         self.num_players = num_players

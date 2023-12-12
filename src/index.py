@@ -2,9 +2,9 @@ import os
 import pygame
 from services.memory_game_setup import MemoryGameSetUp
 from ui.start_display import StartScreen
+from ui.game_display import Renderer
 from game_loop import GameLoop
 from event_queue import EventQueue
-from ui.game_display import Renderer
 from clock import Clock
 
 

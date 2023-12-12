@@ -22,7 +22,7 @@ class GameLoop:
 
     def start(self):
         while True:
-            if self._handle_events() == False:
+            if self._handle_events() is False:
                 break
 
             self._process_turned_cards()
@@ -35,11 +35,14 @@ class GameLoop:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_x, mouse_y = pygame.mouse.get_pos()
                 for card in self.all_cards:
-                    if card.card_chosen(mouse_x, mouse_y) and len(self.cards_turned) < 2 and card not in self.cards_turned:
+                    if (card.card_chosen(mouse_x, mouse_y) and
+                        len(self.cards_turned) < 2 and
+                        card not in self.cards_turned):
                         card.flip()
                         self.cards_turned.append(card)
             elif event.type == pygame.QUIT:
-                return False
+                pygame.quit()
+                sys.exit()#return False
 
     def _process_turned_cards(self):
         if len(self.cards_turned) == 2:

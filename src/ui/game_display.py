@@ -10,17 +10,17 @@ class Renderer:
     def __init__(self, screen, setup):
         self._screen = screen
         self._setup = setup
-        self.WIDTH = self._setup.WIDTH
-        self.HEIGHT = self._setup.HEIGHT
+        self.width = self._setup.width
+        self.height = self._setup.height
 
     def render(self, current_player, scores, num_players):
-        pygame.draw.rect(self._screen, black, [0, 0, self.WIDTH, 100])
+        pygame.draw.rect(self._screen, black, [0, 0, self.width, 100])
         player1_text = "Pelaaja 1"
         player2_text = "Pelaaja 2"
         player3_text = "Pelaaja 3"
 
         pygame.draw.rect(
-            self._screen, lavender, [0, 100, self.WIDTH, self.HEIGHT-100], 0)
+            self._screen, lavender, [0, 100, self.width, self.height-100], 0)
         self._setup.all_cards.draw(self._screen)
 
         if num_players == 1:
@@ -31,7 +31,7 @@ class Renderer:
             self._draw_player_info(
                 player1_text, scores[0], 50, 10, current_player == 1)
             self._draw_player_info(
-                player2_text, scores[1], self.WIDTH - 250, 10, current_player == 2)
+                player2_text, scores[1], self.width - 250, 10, current_player == 2)
 
         elif num_players == 3:
             self._draw_player_info(
