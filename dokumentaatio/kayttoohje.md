@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa projektin viimeisin release valitsemalla Assets-kohdan alta Source_code.
+Lataa projektin viimeisin [release](https://github.com/labyrine/memory_game/releases/tag/viikko6) valitsemalla Assets-kohdan alta Source_code.
 
 ## Ohjelman käynnistäminen
 
