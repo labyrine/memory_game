@@ -33,6 +33,7 @@
 ||1|Alustavaa testien tekoa, jotka eivät toimineet|
 ||1|Koodin korjailua Pylintin ilmoitusten perusteella|
 ||0.25|Käyttöohje|
-| **Yht.**  | **49.5** |
+|19.12|2|Rakenteen korjaamista aloitusruudun koodiin liittyen|
+| **Yht.**  | **51.5** |
 
 
