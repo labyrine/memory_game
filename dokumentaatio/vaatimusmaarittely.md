@@ -11,7 +11,7 @@ Sovelluksen on tarkoitus olla yhden tai useamman pelaajan samalla tietokoneella 
 - [x] Jos nostetut kortit muodostavat parin, kyseinen pelaaja saa tästä parista pisteen
 - [x] Jos nostetut kortit muodostavat parin, kyseiset kortit katoavat pelistä
 - [x] Peli päättyy, kun kaikki parit on löydetty.
-- [ ] Kun peli päättyy, voittaja ja hänen pisteensä näytetään ruudulla.
+- [x] Kun peli päättyy, voittaja ja hänen pisteensä näytetään ruudulla.
 
 **Muuta**
 - [x] Mahdollisuus valita pelaajien määrä väliltä 1-3
