@@ -38,7 +38,7 @@ class GameLoop:
         self.set_up_atributes(num_players)
 
     def _score_display(self):
-        self._renderer.display_score_screen()
+        self._renderer.display_score_screen(self.scores, self.num_players)
         self.apu_funktio_score()
 
     def set_up_atributes(self, num_players):
@@ -77,15 +77,13 @@ class GameLoop:
             elif event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-    
+
     def apu_funktio_score(self):
         while True:
             for event in self._event_queue.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-                elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                    return False
 
     def _process_turned_cards(self):
         if len(self.cards_turned) == 2:

@@ -103,11 +103,27 @@ class Renderer:
         self._screen.blit(guide2_text, text_rect2)
         pygame.display.flip()
     # Generated code ends
-        
-    def display_score_screen(self):
+
+    def display_score_screen(self, scores, num_players):
         self._screen.fill((0, 0, 0))
         font = pygame.font.SysFont("verdana", 36)
-        score_text = font.render("Tulokset testisivu", True, (255, 0, 255))
-        self._screen.blit(score_text, (300, 250))
+        score_text = font.render("Tulokset", True, (255, 0, 255))
+        self._screen.blit(score_text, (300, 20))
+
+        player_scores = []
+        for i in range(len(scores)):
+            player_number = i + 1
+            player_score = scores[i]
+            player_tuple = (player_score, player_number)
+            player_scores.append(player_tuple)
+
+        sorted_players = sorted(player_scores, key=lambda a: (-a[0], a[1]))
+
+        for i in range(num_players):
+            player_score, player_number = sorted_players[i]
+            player_text = f"Pelaaja {player_number}"
+            y_pos = 80 + i * 100
+            self._draw_player_info(
+                player_text, player_score, 300, y_pos, False)
+
         pygame.display.flip()
-        
