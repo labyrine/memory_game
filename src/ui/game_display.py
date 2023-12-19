@@ -13,6 +13,7 @@ class Renderer:
         screen: A pygame surface.
         setup: An instance of the MemoryGameSetup class containing game setup information.
     """
+
     def __init__(self, screen, setup):
         """
         The constructor of the class that creates a new renderer object.
@@ -85,3 +86,20 @@ class Renderer:
 
         self._screen.blit(player_text, (x, y))
         self._screen.blit(score_text, (x, y + 40))
+
+    # Generated code starts
+    def display_start_screen(self):
+        font = pygame.font.SysFont("verdana", 36)
+        guide1_text = font.render(
+            "Valitse pelaajien määrä yhdestä kolmeen", True, (255, 255, 255))
+        text_rect1 = guide1_text.get_rect(
+            center=(self.width // 2, self.height // 2 - 20))
+        guide2_text = font.render(
+            "numeronäppäimillä 1, 2 ja 3", True, (255, 255, 255))
+        text_rect2 = guide2_text.get_rect(
+            center=(self.width // 2, self.height // 2 + 20))
+
+        self._screen.blit(guide1_text, text_rect1)
+        self._screen.blit(guide2_text, text_rect2)
+        pygame.display.flip()
+    # Generated code ends

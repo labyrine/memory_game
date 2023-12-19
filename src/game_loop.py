@@ -12,15 +12,17 @@ class GameLoop:
         self.pairs_count = len(self.all_cards) // 2
         self.points = 0
         self.cards_turned = []
-        self.num_players = setup.num_players
-        self.current_player = setup.current_player
-        self.scores = setup.scores
+        self.num_players = None
+        self.current_player = None
+        self.scores = None
         # Generated code starts
         self.flip_timer = self._clock.get_ticks()
         self.update_current_player_going = False
         # Generated code ends
 
     def start(self):
+        self._start_display()
+
         while True:
             if self._handle_events() is False:
                 break
@@ -30,6 +32,34 @@ class GameLoop:
 
             self._clock.tick(60)
 
+    def _start_display(self):
+        self._renderer.display_start_screen()
+        num_players = self.get_num_players()
+        self.set_up_atributes(num_players)
+
+    def set_up_atributes(self, num_players):
+        self.num_players = num_players
+        self.current_player = 1
+        self.scores = [0] * num_players
+
+    # Generated code starts
+    def get_num_players(self):
+        num_players = None
+        while num_players not in [1, 2, 3]:
+            for event in self._event_queue.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_1:
+                        num_players = 1
+                    elif event.key == pygame.K_2:
+                        num_players = 2
+                    elif event.key == pygame.K_3:
+                        num_players = 3
+        return num_players
+    # Generated code ends
+
     def _handle_events(self):
         for event in self._event_queue.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -37,12 +67,12 @@ class GameLoop:
                 for card in self.all_cards:
                     if (card.card_chosen(mouse_x, mouse_y) and
                         len(self.cards_turned) < 2 and
-                        card not in self.cards_turned):
+                            card not in self.cards_turned):
                         card.flip()
                         self.cards_turned.append(card)
             elif event.type == pygame.QUIT:
                 pygame.quit()
-                sys.exit()#return False
+                sys.exit()
 
     def _process_turned_cards(self):
         if len(self.cards_turned) == 2:
