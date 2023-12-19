@@ -6,7 +6,7 @@ Sovelluksen on tarkoitus olla yhden tai useamman pelaajan samalla tietokoneella 
 
 **Pelin kultu**
 - [x] Peli alkaa, kun pelaajat painavat aloita-nappia ("Aloitusnappeina" toimivat tällä hetkellä näppäimistön näppäimet 1, 2 ja 3.) 
-- [x] Kukin pelaaja saa kääntää vuorollaan kaksi korttia näkyviin (Tällä hetkellä käytössä vain yksinpeli)
+- [x] Kukin pelaaja saa kääntää vuorollaan kaksi korttia näkyviin
 - [x] Jos nostetut kortit eivät muodosta paria, ne käännetään takaisin ympäri 
 - [x] Jos nostetut kortit muodostavat parin, kyseinen pelaaja saa tästä parista pisteen
 - [x] Jos nostetut kortit muodostavat parin, kyseiset kortit katoavat pelistä
