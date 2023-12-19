@@ -34,6 +34,9 @@
 ||1|Koodin korjailua Pylintin ilmoitusten perusteella|
 ||0.25|Käyttöohje|
 |19.12|2|Rakenteen korjaamista aloitusruudun koodiin liittyen|
-| **Yht.**  | **51.5** |
+||1.5|Sivujen vaihtuvuuden tekoa, joka ei onnistunut ja siten päätynyt projektiin|
+||0.5|Ensimmäinen tulossivu|
+||1.5|Tulossivulla näkyy pelin tulokset|
+| **Yht.**  | **55** |
 
 
