@@ -103,3 +103,11 @@ class Renderer:
         self._screen.blit(guide2_text, text_rect2)
         pygame.display.flip()
     # Generated code ends
+        
+    def display_score_screen(self):
+        self._screen.fill((0, 0, 0))
+        font = pygame.font.SysFont("verdana", 36)
+        score_text = font.render("Tulokset testisivu", True, (255, 0, 255))
+        self._screen.blit(score_text, (300, 250))
+        pygame.display.flip()
+        
