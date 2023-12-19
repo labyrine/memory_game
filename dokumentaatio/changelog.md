@@ -17,3 +17,7 @@
 - Pelaajien vuorot vaihtuvat peliruudulla vaihtamalla väriä
 - Jokaisella pelaajalla on päivittyvät pisteet peliruudulla
 - Rakenteen korjausta: Luokka MemoryGameSetUp huolehtii mm. Card olioiden luomisesta ja GameLoop taas pelin aikaisesta käyttäjän toiminnasta
+
+# Viikko 7
+- Rakenteen korjausta: Nyt aloitus ja tulos-sivuja kutsutaan samassa funktiossa kuin pelin silmukkaa, eikä suoraan main-funktiossa
+- Kun kaikki parit on löydetty, ruudulle ilmestyy pelin tulokset
