@@ -89,6 +89,7 @@ class Renderer:
 
     # Generated code starts
     def display_start_screen(self):
+        self._screen.fill((0, 0, 0))
         font = pygame.font.SysFont("verdana", 36)
         guide1_text = font.render(
             "Valitse pelaajien määrä yhdestä kolmeen", True, (255, 255, 255))
