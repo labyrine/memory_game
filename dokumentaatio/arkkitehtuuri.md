@@ -33,6 +33,7 @@ Luokka/Pakkauskaavio sovelluslogiikan selventämiseksi
 
 ## Päätoiminnot
 
-## Muuta
+Päätoiminto olisi korttien valitseminen ja kahden kortin vertailu
 
 ## Ohjelman rakenteen heikkoudet
+GameLoop luokassa on toisteisuutta sekä jotkin osat sen koodista olisi voinut erottaa toisistaan testaamisen helpottamiseksi. Kuvien lataamisen olisi voinut erottaa muualle, että muu koodi olisi siistimpi.
