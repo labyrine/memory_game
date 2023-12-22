@@ -22,7 +22,7 @@ class MemoryGameSetUp:
         self.height = height
         self.current_directory = current_directory
         self.all_cards = pygame.sprite.Group()
-        
+
         try:
             self._initialize_sprites(current_directory, width, height)
         except FileNotFoundError as err:
@@ -41,7 +41,7 @@ class MemoryGameSetUp:
             height: The height of the game window for calculating cards coordinates.
             current_directory: The current directory of the game for loading images.
         """
-        
+
         image_names = [
             "apple.png", "bird.png", "butterfly.png", "campfire.png", "car.png",
             "cherry.png", "donut.png", "fish.png", "flower.png", "flower1.png",

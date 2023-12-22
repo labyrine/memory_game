@@ -52,7 +52,7 @@ class Card(pygame.sprite.Sprite):
 
     def is_matching(self, other_card):
         """Check if the image of this card matches the image of another card.
-        
+
         Args:
             other_card: Card to compare the first selected card.
         """

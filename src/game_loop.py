@@ -22,7 +22,8 @@ class GameLoop:
     """
 
     def __init__(self, setup, renderer, event_queue, clock):
-        """The constructor of the class that sets up the GameLoop with setup, renderer, event_queue, and clock.
+        """The constructor of the class that sets up the GameLoop with setup, renderer, 
+        event_queue, and clock.
         """
 
         self._setup = setup
@@ -42,7 +43,8 @@ class GameLoop:
         # Generated code ends
 
     def start(self):
-        """Function for starting the game loop, handling events, processing turned cards and rendering game.
+        """Function for starting the game loop, handling events, processing turned cards 
+        and rendering game.
         """
 
         self._start_display()
@@ -57,7 +59,8 @@ class GameLoop:
             self._clock.tick(60)
 
     def _start_display(self):
-        """Function for displaying the start screen, getting the number of players and setting up attributes.
+        """Function for displaying the start screen, getting the number of players and 
+        setting up attributes.
         """
 
         self._renderer.display_start_screen()
@@ -101,8 +104,8 @@ class GameLoop:
                             num_players = 2
                         elif event.key == pygame.K_3:
                             num_players = 3
-        except Exception as err:
-            print("Unexpected error while getting number of players:", err)
+        except pygame.error as err:
+            print("Pygame.error while getting number of players:", err)
             sys.exit()
         return num_players
     # Generated code ends
@@ -129,9 +132,6 @@ class GameLoop:
             sys.exit()
         except IndexError as err:
             print("IndexError while handling game events:", err)
-        except Exception as err:
-            print("Unexpected error while handling game events:", err)
-            sys.exit()
 
     def score_screen(self):
         """Function for displaying the score screen.
@@ -204,6 +204,6 @@ class GameLoop:
 
         try:
             self._renderer.render(self.current_player,
-                self.scores, self.num_players)
-        except Exception as err:
-            print("Unexpected error while rendering game:", err)
+                                  self.scores, self.num_players)
+        except pygame.error as err:
+            print("Pygame.error while rendering game:", err)

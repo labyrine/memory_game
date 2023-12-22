@@ -73,7 +73,7 @@ class Renderer:
         font = pygame.font.SysFont("verdana", 36)
         # Generated code starts
         player_text = font.render(
-            player, True, (255, 0, 255) if is_current_player else (255, 255,255))
+            player, True, (255, 0, 255) if is_current_player else (255, 255, 255))
         score_text = font.render(
             f"Pisteet: {score}", True, (255, 0, 255) if is_current_player else (255, 255, 255))
         # Generated code ends
