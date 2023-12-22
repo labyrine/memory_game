@@ -1,10 +1,5 @@
 import pygame
 
-white = (255, 255, 255)
-black = (0, 0, 0)
-lavender = (230, 230, 250)
-magneta = (255, 0, 255)
-
 
 class Renderer:
     """A class that renders the screen and its objects during the game.
@@ -34,13 +29,13 @@ class Renderer:
             num_players: The number of players in the game.
         """
 
-        pygame.draw.rect(self._screen, black, [0, 0, self.width, 100])
+        pygame.draw.rect(self._screen, (0, 0, 0), [0, 0, self.width, 100])
         player1_text = "Pelaaja 1"
         player2_text = "Pelaaja 2"
         player3_text = "Pelaaja 3"
 
         pygame.draw.rect(
-            self._screen, lavender, [0, 100, self.width, self.height-100], 0)
+            self._screen, (230, 230, 255), [0, 100, self.width, self.height-100], 0)
         self._setup.all_cards.draw(self._screen)
 
         if num_players == 1:
@@ -78,9 +73,9 @@ class Renderer:
         font = pygame.font.SysFont("verdana", 36)
         # Generated code starts
         player_text = font.render(
-            player, True, magneta if is_current_player else white)
+            player, True, (255, 0, 255) if is_current_player else (255, 255,255))
         score_text = font.render(
-            f"Pisteet: {score}", True, magneta if is_current_player else white)
+            f"Pisteet: {score}", True, (255, 0, 255) if is_current_player else (255, 255, 255))
         # Generated code ends
 
         self._screen.blit(player_text, (x, y))
@@ -104,7 +99,8 @@ class Renderer:
 
         self._screen.blit(guide1_text, text_rect1)
         self._screen.blit(guide2_text, text_rect2)
-        pygame.display.flip()
+
+        pygame.display.update()
     # Generated code ends
 
     def display_score_screen(self, scores, num_players):
@@ -135,4 +131,4 @@ class Renderer:
             self._draw_player_info(
                 player_text, player_score, 300, y_pos, False)
 
-        pygame.display.flip()
+        pygame.display.update()
