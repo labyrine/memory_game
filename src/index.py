@@ -15,6 +15,10 @@ HEIGHT = 600
 
 
 def main():
+    """The main function establishes the initial settings 
+    for a memory game and then starts the game loop.
+    """
+
     pygame.init()
 
     screen = pygame.display.set_mode((WIDTH, HEIGHT))

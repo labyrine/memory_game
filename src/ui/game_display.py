@@ -17,11 +17,8 @@ class Renderer:
     def __init__(self, screen, setup):
         """
         The constructor of the class that creates a new renderer object.
-
-        Args:
-            screen: A pygame surface.
-            setup: An instance of the MemorGameSetup class containing game setup information.
         """
+
         self._screen = screen
         self._setup = setup
         self.width = self._setup.width
@@ -36,6 +33,7 @@ class Renderer:
             scores: A list containing the scores of each player.
             num_players: The number of players in the game.
         """
+
         pygame.draw.rect(self._screen, black, [0, 0, self.width, 100])
         player1_text = "Pelaaja 1"
         player2_text = "Pelaaja 2"
@@ -76,6 +74,7 @@ class Renderer:
             y: The y-coordinate for the player information.
             is_current_player: Determines whether the player is currently active.
         """
+
         font = pygame.font.SysFont("verdana", 36)
         # Generated code starts
         player_text = font.render(
@@ -89,6 +88,9 @@ class Renderer:
 
     # Generated code starts
     def display_start_screen(self):
+        """Displays the start screen with instructions for selecting the number of players.
+        """
+
         self._screen.fill((0, 0, 0))
         font = pygame.font.SysFont("verdana", 36)
         guide1_text = font.render(
@@ -106,6 +108,12 @@ class Renderer:
     # Generated code ends
 
     def display_score_screen(self, scores, num_players):
+        """Displays the score screen showing the final scores of all the players.
+
+        Args:
+        num_players: The number of players in the game.
+        """
+
         self._screen.fill((0, 0, 0))
         font = pygame.font.SysFont("verdana", 36)
         score_text = font.render("Tulokset", True, (255, 0, 255))

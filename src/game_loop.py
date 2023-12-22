@@ -3,7 +3,28 @@ import pygame
 
 
 class GameLoop:
+    """A class that is responsible for handling player input throughout the game.
+
+    Attributes:
+        _setup: An instance of the MemoryGameSetup class containing game setup information.
+        _renderer: An object responsible for rendering the game.
+        _event_queue: A queue for storing and handling pygame events.
+        _clock: A pygame Clock object for controlling the game's frame rate.
+        all_cards: A list of all cards in the game.
+        pairs_count: The total number of found card pairs in the game.
+        points: All the points given in the game at the time. 
+        cards_turned: A list of cards that have been turned over.
+        num_players: The number of players in the game.
+        current_player: The player whose turn it is in the game.
+        scores: A list containing the scores of each player.
+        flip_timer: A timer for tracking the time between card flips.
+        update_current_player_going: Determines whether to update the current player.
+    """
+
     def __init__(self, setup, renderer, event_queue, clock):
+        """The constructor of the class that sets up the GameLoop with setup, renderer, event_queue, and clock.
+        """
+
         self._setup = setup
         self._renderer = renderer
         self._event_queue = event_queue
@@ -21,6 +42,9 @@ class GameLoop:
         # Generated code ends
 
     def start(self):
+        """Function for starting the game loop, handling events, processing turned cards and rendering game.
+        """
+
         self._start_display()
 
         while True:
@@ -33,21 +57,36 @@ class GameLoop:
             self._clock.tick(60)
 
     def _start_display(self):
+        """Function for displaying the start screen, getting the number of players and setting up attributes.
+        """
+
         self._renderer.display_start_screen()
         num_players = self.get_num_players()
         self.set_up_atributes(num_players)
 
     def _score_display(self):
+        """Function for displaying the score screen.
+        """
+
         self._renderer.display_score_screen(self.scores, self.num_players)
         self.score_screen()
 
     def set_up_atributes(self, num_players):
+        """Function for setting up game attributes with the given number of players.
+
+        Args:
+            num_players: Number of players playing the memory game.
+        """
+
         self.num_players = num_players
         self.current_player = 1
         self.scores = [0] * num_players
 
     # Generated code starts
     def get_num_players(self):
+        """Function for getting the number of players based on user input.
+        """
+
         num_players = None
         while num_players not in [1, 2, 3]:
             for event in self._event_queue.get():
@@ -65,6 +104,9 @@ class GameLoop:
     # Generated code ends
 
     def _handle_events(self):
+        """Function for handling pygame events like mouse clicks and quit events.
+        """
+
         for event in self._event_queue.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_x, mouse_y = pygame.mouse.get_pos()
@@ -79,6 +121,9 @@ class GameLoop:
                 sys.exit()
 
     def score_screen(self):
+        """Function for displaying the score screen.
+        """
+
         while True:
             for event in self._event_queue.get():
                 if event.type == pygame.QUIT:
@@ -86,6 +131,9 @@ class GameLoop:
                     sys.exit()
 
     def _process_turned_cards(self):
+        """Function for processing turned cards, checking for matches and updating game state.
+        """
+
         if len(self.cards_turned) == 2:
             current_time = self._clock.get_ticks()
             # Generated code starts
@@ -99,6 +147,9 @@ class GameLoop:
         # Generated code ends
 
     def process_match_outcome(self):
+        """Function for processing the outcome of a card match, updating scores and game state.
+        """
+
         if self.cards_turned[0].is_matching(self.cards_turned[1]):
             self.points += 1
             if self.current_player == 1:
@@ -118,6 +169,9 @@ class GameLoop:
             self.cards_turned = []
 
     def update_current_player(self):
+        """Function for updating the current player according to the number of players.
+        """
+
         if self.num_players == 2:
             if self.current_player == 1:
                 self.current_player = 2
@@ -132,5 +186,8 @@ class GameLoop:
                 self.current_player = 1
 
     def _render(self):
+        """Function for rendering the game.
+        """
+
         self._renderer.render(self.current_player,
             self.scores, self.num_players)
