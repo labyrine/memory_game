@@ -2,7 +2,7 @@
 
 Sovellus on muistipeli, jota voi pelata yksi, kaksi tai kolme henkilöä.
 
-Ennen peliä voidaan valita pelaajien määrä. Tämän jälkeen peliruudulla näkyy 1, 2 tai 3 pelaajanimeä, joiden väri vaihtuu riippuen siitä, kenen vuoro on. Lisäksi jokaiselle pelaajalle näkyy henkilökohtaiset pisteet, jotka päivittyvät pelin kuluessa. Kun kaikki parit ovat löydetty, peli sulkeutuu.
+Ennen peliä voidaan valita pelaajien määrä. Tämän jälkeen peliruudulla näkyy 1, 2 tai 3 pelaajanimeä, joiden väri vaihtuu riippuen siitä, kenen vuoro on. Lisäksi jokaiselle pelaajalle näkyy henkilökohtaiset pisteet, jotka päivittyvät pelin kuluessa. Kun kaikki parit ovat löydetty, pelin tulosruutu avautuu, jossa näkyy kunkin pelaajan pisteet. Tulosruudun voi sulkea vain yläkulman rastista, ja jos pelin haluaa pelata uudelleen, se pitää käynnistää uudelleen komentoriviltä.
 
 Muistipelin korttien tekemisessä on käytetty Googlen Autodraw-työkalua.
 
