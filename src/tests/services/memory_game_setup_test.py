@@ -6,7 +6,8 @@ import os
 class TestMemoryGameSetUp(unittest.TestCase):
     def setUp(self):
         self.current_directory = os.path.dirname(os.path.abspath(__file__))
-        self.src_path = os.path.abspath(os.path.join(self.current_directory, '..', '..'))
+        self.src_path = os.path.abspath(
+            os.path.join(self.current_directory, '..', '..'))
         self.game_setup = MemoryGameSetUp(self.src_path, 800, 600)
 
     def test_width_attribute(self):
