@@ -8,6 +8,13 @@ Pakkaus ui sisältävät käyttöliitymän koodin, services ja sprites taas sove
 
 ## Käyttöliittymä
 
+Käyttöliittymässä on kolme näkymää
+- Aloitussivu - Pelaajien määrän valinta
+- Pelisivu - Pelin kulku ja pelaajien pisteiden päivittyminen
+- Tulossivu - Näyttää lopuksi pelaajien pisteet
+
+Jokaisen näiden piirtämisestä vastaa luokka Render. Näkymät ovat näkyvillä yksi kerrallaan.
+
 ## Sovelluslogiikka
 
 ## Päätoiminnot
