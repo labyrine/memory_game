@@ -88,18 +88,22 @@ class GameLoop:
         """
 
         num_players = None
-        while num_players not in [1, 2, 3]:
-            for event in self._event_queue.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_1:
-                        num_players = 1
-                    elif event.key == pygame.K_2:
-                        num_players = 2
-                    elif event.key == pygame.K_3:
-                        num_players = 3
+        try:
+            while num_players not in [1, 2, 3]:
+                for event in self._event_queue.get():
+                    if event.type == pygame.QUIT:
+                        pygame.quit()
+                        sys.exit()
+                    elif event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_1:
+                            num_players = 1
+                        elif event.key == pygame.K_2:
+                            num_players = 2
+                        elif event.key == pygame.K_3:
+                            num_players = 3
+        except Exception as err:
+            print("Unexpected error while getting number of players:", err)
+            sys.exit()
         return num_players
     # Generated code ends
 
@@ -107,18 +111,27 @@ class GameLoop:
         """Function for handling pygame events like mouse clicks and quit events.
         """
 
-        for event in self._event_queue.get():
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                mouse_x, mouse_y = pygame.mouse.get_pos()
-                for card in self.all_cards:
-                    if (card.card_chosen(mouse_x, mouse_y) and
-                        len(self.cards_turned) < 2 and
-                            card not in self.cards_turned):
-                        card.flip()
-                        self.cards_turned.append(card)
-            elif event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
+        try:
+            for event in self._event_queue.get():
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    mouse_x, mouse_y = pygame.mouse.get_pos()
+                    for card in self.all_cards:
+                        if (card.card_chosen(mouse_x, mouse_y) and
+                            len(self.cards_turned) < 2 and
+                                card not in self.cards_turned):
+                            card.flip()
+                            self.cards_turned.append(card)
+                elif event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+        except pygame.error as err:
+            print("Pygame.error while handling game events:", err)
+            sys.exit()
+        except IndexError as err:
+            print("IndexError while handling game events:", err)
+        except Exception as err:
+            print("Unexpected error while handling game events:", err)
+            sys.exit()
 
     def score_screen(self):
         """Function for displaying the score screen.
@@ -189,5 +202,8 @@ class GameLoop:
         """Function for rendering the game.
         """
 
-        self._renderer.render(self.current_player,
-            self.scores, self.num_players)
+        try:
+            self._renderer.render(self.current_player,
+                self.scores, self.num_players)
+        except Exception as err:
+            print("Unexpected error while rendering game:", err)

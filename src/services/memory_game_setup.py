@@ -25,8 +25,10 @@ class MemoryGameSetUp:
         
         try:
             self._initialize_sprites(directory_now, width, height)
-        except (FileNotFoundError, pygame.error):
-            print("File not found or pygame error occured")
+        except FileNotFoundError as err:
+            print("FileNotFoundError while initializing sprites:", err)
+        except pygame.error as err:
+            print("Pygame.error while initializing sprites:", err)
 
     def _initialize_sprites(self, current_directory, width, height):
         """Initialize the sprites for the memory game.
