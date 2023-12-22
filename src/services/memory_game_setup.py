@@ -14,17 +14,17 @@ class MemoryGameSetUp:
         all_cards: A pygame sprite group containing all the memory game cards.
     """
 
-    def __init__(self, directory_now, width, height):
+    def __init__(self, current_directory, width, height):
         """Initialize the MemoryGameSetUp with the game's dimensions and current directory.
         """
 
         self.width = width
         self.height = height
-        self.current_directory = directory_now
+        self.current_directory = current_directory
         self.all_cards = pygame.sprite.Group()
         
         try:
-            self._initialize_sprites(directory_now, width, height)
+            self._initialize_sprites(current_directory, width, height)
         except FileNotFoundError as err:
             print("FileNotFoundError while initializing sprites:", err)
         except pygame.error as err:
