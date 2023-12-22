@@ -37,6 +37,11 @@
 ||1.5|Sivujen vaihtuvuuden tekoa, joka ei onnistunut ja siten päätynyt projektiin|
 ||0.5|Ensimmäinen tulossivu|
 ||1.5|Tulossivulla näkyy pelin tulokset|
-| **Yht.**  | **55** |
+|21.12|1.5|MemoryGameSetUp testaaminen|
+||3|GameLoop testaaminen, joka ei toiminut|
+|22.12|2|Docstring-dokumentointi|
+||1|Virheenkäsittelyä|
+||0.5|Koodin laatu|
+| **Yht.**  | **63** |
 
 
