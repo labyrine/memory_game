@@ -22,8 +22,11 @@ class MemoryGameSetUp:
         self.height = height
         self.current_directory = directory_now
         self.all_cards = pygame.sprite.Group()
-
-        self._initialize_sprites(directory_now, width, height)
+        
+        try:
+            self._initialize_sprites(directory_now, width, height)
+        except (FileNotFoundError, pygame.error):
+            print("File not found or pygame error occured")
 
     def _initialize_sprites(self, current_directory, width, height):
         """Initialize the sprites for the memory game.
