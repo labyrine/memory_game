@@ -21,3 +21,4 @@
 # Viikko 7
 - Rakenteen korjausta: Nyt aloitus ja tulos-sivuja kutsutaan samassa funktiossa kuin pelin silmukkaa, eikä suoraan main-funktiossa
 - Kun kaikki parit on löydetty, ruudulle ilmestyy pelin tulokset
+- MemoryGameSetUp luokan testaamista
