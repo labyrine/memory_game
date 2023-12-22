@@ -16,7 +16,7 @@ Muistipelin korttien tekemisessä on käytetty Googlen Autodraw-työkalua.
 
 [Käyttöohje](https://github.com/labyrine/memory_game/blob/main/dokumentaatio/kayttoohje.md)
 
-[Release](https://github.com/labyrine/memory_game/releases/tag/viikko6)
+[Release](https://github.com/labyrine/memory_game/releases/tag/loppupalautus)
 
 ## Asentaminen
 
